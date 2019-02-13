@@ -37,7 +37,7 @@ class User{
 export class ApplicationComponent { 
 
 	currentApplication: Application;
-
+    contentTypes: string[];
 	selectedPublisherName: string;
     applications: Application[];
 	constructor(private applicationsService: HttpApplicationsService, private syncService: SyncService){

@@ -128,12 +128,24 @@ export class ButtonOperationComponent {
 		this.usersService.deleteOperator(this.userName, this.currentChosenUserRole).subscribe()
     } 
     createApplication(event:any) { 
-		this.applicationsService.createApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
-		.subscribe((data: Application) => {this.applicationName=data.name, this.applicationType=data.applicationType, this.applicationContentTypes = data.contentTypes, this.applicationUserName = data.user.name, this.applicationUserEmail = data.user.email, this.applicationUserRole = data.user.role;});
-    } 
-    updateApplication(event:any) { 
-		this.applicationsService.updateApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
-		.subscribe((data: Application) => {this.applicationName=data.name, this.applicationType=data.applicationType, this.applicationContentTypes = data.contentTypes, this.applicationUserName = data.user.name, this.applicationUserEmail = data.user.email, this.applicationUserRole = data.user.role;});
+		if (!(this.applicationContentTypes instanceof Array)){
+			this.applicationContentTypes = [this.applicationContentTypes]
+			this.applicationsService.createApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
+			.subscribe((data: Application) => {this.applicationName=data.name, this.applicationType=data.applicationType, this.applicationContentTypes = data.contentTypes, this.applicationUserName = data.user.name, this.applicationUserEmail = data.user.email, this.applicationUserRole = data.user.role;});
+		} else {
+			this.applicationsService.createApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
+			.subscribe((data: Application) => {this.applicationName=data.name, this.applicationType=data.applicationType, this.applicationContentTypes = data.contentTypes, this.applicationUserName = data.user.name, this.applicationUserEmail = data.user.email, this.applicationUserRole = data.user.role;});
+		}
+	} 
+    updateApplication(event:any) {
+		if (!(this.applicationContentTypes instanceof Array)){
+			this.applicationContentTypes = [this.applicationContentTypes]
+			this.applicationsService.createApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
+			.subscribe((data: Application) => {this.applicationName=data.name, this.applicationType=data.applicationType, this.applicationContentTypes = data.contentTypes, this.applicationUserName = data.user.name, this.applicationUserEmail = data.user.email, this.applicationUserRole = data.user.role;});
+		} else {
+			this.applicationsService.updateApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
+			.subscribe((data: Application) => {this.applicationName=data.name, this.applicationType=data.applicationType, this.applicationContentTypes = data.contentTypes, this.applicationUserName = data.user.name, this.applicationUserEmail = data.user.email, this.applicationUserRole = data.user.role;});
+		}
    } 
     deleteApplication(event:any) { 
 		this.applicationsService.deleteApplication(this.applicationName, this.currentChosenUserRole).subscribe();
