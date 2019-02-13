@@ -1,0 +1,59 @@
+<div class="buttons-header"><h4>You can perform the following actions:</h4></div>
+<div class="operation-buttons">
+  <button mat-raised-button (click) = "createPublisher()" [disabled]="isCreatePublisherDisabled">Create Publisher</button>
+  <button mat-raised-button (click) = "updatePublisher()" [disabled]="isUpdatePublisherDisabled">Update Publisher</button>
+  <button mat-raised-button (click) = "deletePublisher()" [disabled]="isDeletePublisherDisabled">Delete Publisher</button>
+                            
+  <button mat-raised-button (click) = "createOperator()" [disabled]="isCreateOperatorDisabled">Create Operator</button>
+  <button mat-raised-button (click) = "updateOperator()" [disabled]="isUpdateOperatorDisabled">Update Operator</button>
+  <button mat-raised-button (click) = "deleteOperator()" [disabled]="isDeleteOperatorDisabled">Delete Operator</button>
+                            
+  <button mat-raised-button (click) = "createApplication()" [disabled]="isCreateApplicationDisabled">Create Application</button>
+  <button mat-raised-button (click) = "updateApplication()" [disabled]="isUpdateApplicationDisabled">Update Application</button>
+  <button mat-raised-button (click) = "deleteApplication()" [disabled]="isDeleteApplicationDisabled">Delete Application</button>
+</div>
+<div class="role-header" [style.marginLeft.px]="10" [style.marginBottom.px]="-10"><h4>Selected user from list:</h4></div>
+<div class="form-inline" [style.marginLeft.px]="-5">
+	<div class="operation-fields">
+		<div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="userName" placeholder = "Enter User name" />
+			</div>
+		 </div>
+		 <div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="userEmail" placeholder = "Enter User email" />
+			</div>
+		</div>
+		 <div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="userRole" placeholder = "Enter User role" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="role-header" [style.marginLeft.px]="10" [style.marginBottom.px]="-10"><h4>Selected application from list:</h4></div>
+<div class="form-inline" [style.marginLeft.px]="-5">
+	<div class="operation-fields">
+		<div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="applicationName" placeholder = "Enter Application name" />
+			</div>
+		 </div>
+		 <div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="applicationType" placeholder = "Enter Application type" />
+			</div>
+		</div>
+		 <div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="applicationContentTypes" placeholder = "Enter Content Types" />
+			</div>
+		</div>
+		 <div class="form-group">
+			<div class="col-md-8">
+				<input class="form-control" [(ngModel)]="applicationUserName" placeholder = "Enter User for application" />
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <h2>Applications:</h2>
+</div>
+<div>
+    <input class="form-control" [(ngModel)]="selectedPublisherName" placeholder = "Please enter existing publisher name to see all applications that were created by this publisher" />
+</div>
+<div class="panel">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Application Type</th>
+                <th>Content Types</th>
+                <th>User</th>
+            </tr>
+        </thead>
+			<tbody>
+				<tr *ngFor="let application of applications" (click)="click(application.name, application.applicationType, application.contentTypes, application.user.name, application.user.email, application.user.role)">
+					<td>{{application.name}}</td>
+					<td>{{application.applicationType}}</td>
+					<td>{{application.contentTypes}}</td>
+					<td>{{application.user.name}}, {{application.user.email}}, {{application.user.role}}</td>
+				</tr>
+			</tbody>
+		
+    </table>
+</div>

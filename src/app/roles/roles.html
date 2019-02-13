@@ -1,0 +1,20 @@
+<div class="role-header"><h3>Please select a role:</h3></div>
+<mat-radio-group class="role-radio-group" [(ngModel)]="selectedRole">
+  <mat-radio-button class="role-radio-button" *ngFor="let role of userRoles" [value]="role" (click)="press([role])">
+	{{role}}
+  </mat-radio-button>
+</mat-radio-group>
+<div class="role-footer">Imagine that you are: <b>{{selectedRole}}</b></div>
+<buttons-operations-component>Loading...</buttons-operations-component>
+<user-component>Loading...</user-component>
+<application-component>Loading...</application-component>
+
+<div class="role-header"><h4> Some notes:</h4></div>
+<div class="role-header"><h5>- Choose one of the three roles to start working with application.</h5></div>
+<div class="role-header"><h5>- You can write something in the text fields or you can click on records in tables to preselect entity.</h5></div>
+<div class="role-header"><h5>- Unfortunatly refreshing of information in tables performed only while switching between roles Admin, Operator, Pulisher </h5></div>
+<div class="role-header"><h5>- Names of any entity is a business key, so if you update it and press save you will create a new entity.</h5></div>
+<div class="role-header"><h5>- Saving an already existed entity without changing name equal to update. But you cannot update a non-existent entity. Save it at first.</h5></div>
+<div class="role-header"><h5>- You can't remove users that are already attached to some applications. Delete all attached application at first.</h5></div>
+<div class="role-header"><h5>- You can't update Admin by cliking to update publisher etc.</h5></div>
+<div class="role-header"><h5>- You create publisher if you click on create publisher, even if you preselect Operator</h5></div>
