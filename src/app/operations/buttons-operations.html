@@ -40,16 +40,20 @@
 				<input class="form-control" [(ngModel)]="applicationName" placeholder = "Enter Application name" />
 			</div>
 		 </div>
-		 <div class="form-group">
-			<div class="col-md-8">
-				<input class="form-control" [(ngModel)]="applicationType" placeholder = "Enter Application type" />
-			</div>
-		</div>
-		 <div class="form-group">
-			<div class="col-md-8">
-				<input class="form-control" [(ngModel)]="applicationContentTypes" placeholder = "Enter Content Types" />
-			</div>
-		</div>
+		<mat-form-field>
+			<mat-select placeholder="Application Type" [(value)]="applicationType">
+				<mat-option *ngFor="let applicationType of applicationTypes" [value]="applicationType.value">
+					{{applicationType.viewValue}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		
+		<mat-form-field>
+		  <mat-select placeholder="Content Types" multiple [(ngModel)]="applicationContentTypes">
+			<mat-option *ngFor="let contentType of contentTypeList" [value]="contentType">{{contentType}}</mat-option>
+		  </mat-select>
+		</mat-form-field>
+
 		 <div class="form-group">
 			<div class="col-md-8">
 				<input class="form-control" [(ngModel)]="applicationUserName" placeholder = "Enter User for application" />

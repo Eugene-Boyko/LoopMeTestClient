@@ -3,6 +3,11 @@ import {SyncService} from './../sync.service';
 import {HttpApplicationsService} from './../applications.service';
 import {HttpUsersService} from './../users.service';
 
+export interface ApplicationType {
+  value: string;
+  viewValue: string;
+}
+
 class Application{
     name: string;
     applicationType: string;
@@ -35,6 +40,14 @@ class User{
   styleUrls: ['buttons-operations.css']
 })
 export class ButtonOperationComponent {
+	
+	applicationTypes: ApplicationType[] = [
+		{value: 'IOS', viewValue: 'IOS'},
+		{value: 'ANDROID', viewValue: 'ANDROID'},
+		{value: 'WEBSITE', viewValue: 'WEBSITE'}
+	];
+
+	contentTypeList: string[] = ['VIDEO', 'IMAGE', 'HTML'];
 	
 	public data: string[];
 	
@@ -127,7 +140,7 @@ export class ButtonOperationComponent {
     deleteOperator(event:any) { 
 		this.usersService.deleteOperator(this.userName, this.currentChosenUserRole).subscribe()
     } 
-    createApplication(event:any) { 
+    createApplication(event:any) {
 		if (!(this.applicationContentTypes instanceof Array)){
 			this.applicationContentTypes = [this.applicationContentTypes]
 			this.applicationsService.createApplication(new Application(this.applicationName, this.applicationType, this.applicationContentTypes, new User(this.applicationUserName, this.applicationUserEmail, this.applicationUserRole)), this.currentChosenUserRole)
