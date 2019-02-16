@@ -25,11 +25,13 @@
 				<input class="form-control" [(ngModel)]="userEmail" placeholder = "Enter User email" />
 			</div>
 		</div>
-		 <div class="form-group">
-			<div class="col-md-8">
-				<input class="form-control" [(ngModel)]="userRole" placeholder = "Enter User role" />
-			</div>
-		</div>
+		<mat-form-field>
+			<mat-select placeholder="User Role" [(value)]="userRole">
+				<mat-option *ngFor="let userRole of userRoles" [value]="userRole.value">
+					{{userRole.viewValue}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 	</div>
 </div>
 <div class="role-header" [style.marginLeft.px]="10" [style.marginBottom.px]="-10"><h4>Selected application from list:</h4></div>

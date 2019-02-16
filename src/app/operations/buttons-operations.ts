@@ -8,6 +8,11 @@ export interface ApplicationType {
   viewValue: string;
 }
 
+export interface UserRole {
+  value: string;
+  viewValue: string;
+}
+
 class Application{
     name: string;
     applicationType: string;
@@ -45,6 +50,12 @@ export class ButtonOperationComponent {
 		{value: 'IOS', viewValue: 'IOS'},
 		{value: 'ANDROID', viewValue: 'ANDROID'},
 		{value: 'WEBSITE', viewValue: 'WEBSITE'}
+	];
+	
+	userRoles: UserRole[] = [
+		{value: 'ADMIN', viewValue: 'ADMIN'},
+		{value: 'OPERATOR', viewValue: 'OPERATOR'},
+		{value: 'PUBLISHER', viewValue: 'PUBLISHER'}
 	];
 
 	contentTypeList: string[] = ['VIDEO', 'IMAGE', 'HTML'];
